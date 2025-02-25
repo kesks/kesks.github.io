@@ -4,9 +4,6 @@ author:
   name: "Kesks"
   email: 
 
-url: "https://kesks.github.io/"
-baseurl: "" 
-
 
 theme: "minima"  
 
