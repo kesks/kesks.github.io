@@ -1,0 +1,53 @@
+title: "Kesks"
+description: 
+author:
+  name: "Kesks"
+  email: 
+
+url: "https://kesks.github.io/"
+baseurl: "" 
+
+
+theme: "minima"  
+
+
+social:
+  twitter: "your_twitter_handle"
+  facebook: "your_facebook_url"
+  instagram: "your_instagram_url"
+  github: "your_github_url"
+
+
+google_analytics: "UA-XXXXXXX-X" 
+
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+
+permalink: "/:categories/:year/:month/:day/:title.html"
+paginate: 5  
+
+
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Your Name"
+
+
+plugins:
+  - jekyll-feed  
+  - jekyll-seo-tag #
+
+language: "en"
