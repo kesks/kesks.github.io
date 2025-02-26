@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include head.html %}
+</head>
+
+<style>
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #18191a; /* Dark background color similar to Mastodon */
+  color: #e1e4e8; /* Light gray text color for contrast */
+}
+
+/* Container for the layout */
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  gap: 20px;
+}
+
+/* Left Sidebar (navigation) */
+.sidebar-left {
+  width: 25%; /* 25% of the screen width */
+  background-color: #2c2f38; /* Dark sidebar */
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.sidebar-left h2 {
+  color: #ffffff;
+}
+
+.sidebar-left ul {
+  list-style-type: none;
+}
+
+.sidebar-left ul li {
+  margin: 10px 0;
+}
+
+.sidebar-left ul li a {
+  color: #b9bbbe; /* Light gray text for links */
+  text-decoration: none;
+}
+
+.sidebar-left ul li a:hover {
+  color: #7289da; /* Mastodon blue color for hover */
+}
+
+/* Right Sidebar (suggested users) */
+.sidebar-right {
+  width: 25%; /* 25% of the screen width */
+  background-color: #2c2f38; /* Dark sidebar */
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.sidebar-right h2 {
+  color: #ffffff;
+}
+
+.sidebar-right ul {
+  list-style-type: none;
+}
+
+.sidebar-right ul li {
+  margin: 10px 0;
+}
+
+.sidebar-right ul li a {
+  color: #b9bbbe; /* Light gray text for links */
+  text-decoration: none;
+}
+
+.sidebar-right ul li a:hover {
+  color: #7289da; /* Mastodon blue color for hover */
+}
+
+/* Main content area (scrollable) */
+/* Hide scrollbar but keep the scrolling functionality */
+.main-content {
+  width: 50%; /* 50% of the screen width */
+  background-color: #202225; /* Dark background for the main content */
+  padding: 20px;
+  border-radius: 8px;
+  max-height: 600px;
+  overflow-y: scroll; /* Enables scrolling */
+}
+
+/* For WebKit-based browsers (Chrome, Safari, Edge) */
+.main-content::-webkit-scrollbar {
+  display: none; /* Hides the scrollbar */
+}
+
+/* For Firefox */
+.main-content {
+  scrollbar-width: none; /* Hides the scrollbar in Firefox */
+}
+
+
+.main-content h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #ffffff; /* White text color for headings */
+}
+
+.main-content p {
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  color: #e1e4e8; /* Light gray text for paragraphs */
+}
+
+/* Post content styling */
+.post-content {
+  background-color: #2f3136; /* Dark background for the post content */
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.post-content h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #ffffff; /* White text color for post title */
+}
+
+.post-content p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  color: #e1e4e8; /* Light gray text for post body */
+}
+
+.post-content a {
+  color: #7289da; /* Mastodon blue color for links */
+  text-decoration: none;
+}
+
+.post-content a:hover {
+  color: #4f72a3; /* Slightly darker blue for hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column; /* Stack items on tablet and smaller screens */
+  }
+
+  .sidebar-left, .sidebar-right, .main-content {
+    width: 100%; /* Make all sections take full width on small screens */
+    margin-bottom: 20px; /* Space out sections */
+  }
+
+  .main-content {
+    max-height: none; /* Allow the main content to expand fully */
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar-left, .sidebar-right {
+    padding: 10px;
+  }
+
+  .sidebar-left h2, .sidebar-right h2 {
+    font-size: 1.2em; /* Adjust heading sizes */
+  }
+
+  .post-content h2 {
+    font-size: 1.5em; /* Adjust post title size */
+  }
+
+  .post-content p {
+    font-size: 1em; /* Adjust post body text size */
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content h1 {
+    font-size: 1.5em; /* Smaller title on mobile screens */
+  }
+
+  .main-content p {
+    font-size: 1em; /* Smaller text on mobile */
+  }
+
+  .post-content h2 {
+    font-size: 1.2em; /* Further reduce post title size */
+  }
+
+  .post-content p {
+    font-size: 0.9em; /* Further reduce post text size */
+  }
+
+  .sidebar-left, .sidebar-right {
+    width: 100%; /* Make sidebars take full width on mobile */
+    margin-bottom: 20px;
+  }
+}
+    
+    
+.avatar {
+  width: 100%; /* Make the avatar the same width as the sidebar */
+  height: auto; /* Maintain aspect ratio */
+  aspect-ratio: 1; /* Ensures the avatar stays square, by setting height equal to width */
+  border-radius: 8px; /* Make the avatar circular */
+  object-fit: cover; /* Ensures the image fills the avatar container without distortion */
+  margin-bottom: 15px; /* Space between the avatar and the username */
+  border: 1px solid #7289da; /* Optional: adds a border around the avatar */
+  transition: transform 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Hover effect for the avatar */
+.sidebar-left .avatar:hover {
+  transform: scale(1.1); /* Slightly scale up the avatar on hover */
+}
+</style>
+
+<body class="post-page">
+  <div class="container">
+    <!-- Left Sidebar -->
+    <div class="sidebar-left">
+        
+
+
+      <h2>Navigation</h2>
+      <ul>
+        <li><i class="bi bi-house"></i>  <a href="/index.html">Home</a></li>
+        <li><i class="bi bi-search"></i>  <a href="#">Explore</a></li>
+        <li><i class="bi bi-bell"></i>  <a href="#">Notifications</a></li>
+        <li><i class="bi bi-envelope-heart"></i>  <a href="#">Messages</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content (Post Page) -->
+    <div class="main-content">
+      <!-- Post Content -->
+      <div class="post-content">
+        <h2>{{ page.title }}</h2>
+        <p>{{ page.content }}</p> <!-- Post content -->
+      </div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <div class="sidebar-right">
+        
+        <!-- Avatar, Name and Submit Form -->
+      <img src="https://avatars.githubusercontent.com/u/199914491?v=4" alt="User Avatar" class="avatar">
+      <h2 class="user-name">Kesks</h2>
+        <br/>
+        
+      
+      <ul>
+        <li><i class="bi bi-github"></i>  <a href="https://github.com/kesks">Github</a></li>
+        <li><i class="bi bi-mastodon"></i>  <a href="https://mastodon.social/@kesk">Mastodon</a></li>
+        <li><i class="bi bi-stack"></i>  <a href="https://gist.github.com/kesks">Gists</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Scripts (if any) -->
+  <script src="{{ '/assets/js/scripts.js' | relative_url }}"></script>
+</body>
+</html>

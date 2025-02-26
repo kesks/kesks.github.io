@@ -1,3 +1,13 @@
-remote_theme: pages-themes/midnight@v0.2.0
+
+title: kesks
+email: your-email@example.com
+description: >
+baseurl: "" 
+url: "" 
+mastodon_username: kesk
+github_username:  kesks
+
+
 plugins:
-- jekyll-remote-theme
+  - jekyll-feed
+
